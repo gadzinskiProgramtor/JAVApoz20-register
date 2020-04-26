@@ -26,9 +26,10 @@ public class UserRepository {
     }
 
     public User findUserByUsername(String username) {
-        return users.stream().filter(user -> user.getUsername().equals(username)).findAny()
-            .orElseThrow(
-                () -> new UserNotFoundException("User with username: " + username + " not found"));
+        return users.stream()
+            .filter(user -> user.getUsername().equals(username))
+            .findAny()
+            .orElseThrow(() -> new UserNotFoundException("User with username: " + username + " not found"));
     }
 
     public void add(User user) {
@@ -51,5 +52,14 @@ public class UserRepository {
         return matchExact ?
             user -> firstName.equals(user.getFirstName()) :
             user -> user.getFirstName().contains(firstName);
+    }
+
+    public void removeByUsername(String username) {
+        users.remove(findUserByUsername(username));
+    }
+
+    public void update(User user) {
+        removeByUsername(user.getUsername());
+        add(user);
     }
 }

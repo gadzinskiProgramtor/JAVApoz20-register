@@ -17,7 +17,8 @@ public class UserController {
 
     @GetMapping("/users")
     public ModelAndView usersListView(@RequestParam(required = false) String firstName,
-        @RequestParam(required = false) boolean matchExact) {//TODO: task if firstName is not null, filter via it (url structure: /users?firstName=test)
+        @RequestParam(required = false)
+            boolean matchExact) {//TODO: task if firstName is not null, filter via it (url structure: /users?firstName=test)
         ModelAndView modelAndView = new ModelAndView("users");
         modelAndView.addObject("users", userService.findAllUserNames(firstName, matchExact));
         return modelAndView;
@@ -46,5 +47,24 @@ public class UserController {
     public String addUser(@ModelAttribute User user) {
         userService.addUser(user);
         return "redirect:/users";
+    }
+
+    @GetMapping("/users/delete/{username}")
+    public String removeUser(@PathVariable String username) {
+        userService.removeByUsername(username);
+        return "redirect:/users";
+    }
+
+    @GetMapping("/user/update/{username}")
+    public ModelAndView updateUserView(@PathVariable String username) {
+        ModelAndView modelAndView = new ModelAndView("addUser");
+        modelAndView.addObject("user", userService.findUserByUserName(username));
+        return modelAndView;
+    }
+
+    @PostMapping("/user/update")
+    public String updateUser(@ModelAttribute User user) {
+        userService.updateUser(user);
+        return "redirect:/users/" + user.getUsername();
     }
 }

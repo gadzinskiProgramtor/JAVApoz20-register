@@ -29,4 +29,12 @@ public class UserService {
     public void addUser(User user) {
         userRepository.add(user);
     }
+
+    public void removeByUsername(String username) {
+        userRepository.removeByUsername(username);
+    }
+
+    public void updateUser(User user) {
+        userRepository.update(user);
+    }
 }

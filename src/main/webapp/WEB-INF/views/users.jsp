@@ -18,6 +18,7 @@
 			<tr>
 				<td>${user}</td>
 				<td><a href="/users/${user}">Details</a></td>
+				<td><a href="/users/delete/${user}">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>

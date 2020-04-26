@@ -18,8 +18,18 @@ public class UserService {
     public Set<String> findAllUserNames() {
         return userRepository.findAllUserNames();
     }
+    public Set<String> findAllUserNames(String firstName, Boolean matchExact) {
+        return userRepository.findAllUserNames(firstName, matchExact);
+    }
 
     public User findUserByUserName(String username) {
         return userRepository.findUserByUsername(username);
+    }
+
+    public void addUser(User user) {userRepository.addUser(user);
+    }
+
+    public void removeUser(String username) {
+        userRepository.removeUser(username);
     }
 }

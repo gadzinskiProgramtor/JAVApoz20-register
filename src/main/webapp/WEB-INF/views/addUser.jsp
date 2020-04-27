@@ -60,12 +60,13 @@
 
 
     <button class="btn btn-outline-primary" type="submit" value="Add">Submit form</button>
+    <button class="btn btn-outline-primary" type="button" onclick="location.pathname ='/users'">Go back to users list</button>
+</form:form>
 
-    <button class="btn btn-outline-primary" onclick="location.pathname ='/users'">Go back to users list</button>
 
 
     <%--    <input type="submit" value="Add"/>--%>
-</form:form>
+
 
 
 </body>

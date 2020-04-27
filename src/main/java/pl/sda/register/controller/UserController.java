@@ -6,6 +6,8 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.sda.register.model.User;
 import pl.sda.register.service.UserService;
 
+import java.sql.SQLException;
+
 @Controller
 public class UserController {
 
@@ -43,8 +45,21 @@ public class UserController {
     @GetMapping("/user/add")
     public ModelAndView createUserView() {
         ModelAndView modelAndView = new ModelAndView("addUser");
+        modelAndView.addObject("update", false);
         modelAndView.addObject("user", new User());
         return modelAndView;
+    }
+    @GetMapping("/user/update/{username}")
+    public ModelAndView updateUserView(@PathVariable String username) {
+        ModelAndView modelAndView = new ModelAndView("addUser");
+        modelAndView.addObject("update", true);
+        modelAndView.addObject("user", userService.findUserByUserName(username));
+        return modelAndView;
+    }
+    @PostMapping ("/user/update")
+    public String updateUser(@ModelAttribute User user) {
+        userService.updateUser(user);
+        return "redirect:/users";
     }
 
     @PostMapping("/user")

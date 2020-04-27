@@ -61,4 +61,12 @@ public class UserRepository {
     public void removeUser(String username) {
         users.remove(findUserByUsername(username));
     }
+
+    public void updateUser(User user) {
+        User updatedUser=findUserByUsername(user.getUsername());
+        updatedUser.setFirstName(user.getFirstName());
+        updatedUser.setLastName(user.getLastName());
+//        removeUser(user.getUsername());
+//        addUser(user);
+    }
 }

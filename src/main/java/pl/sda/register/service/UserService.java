@@ -6,7 +6,6 @@ import pl.sda.register.dao.UserDaoImpl;
 import pl.sda.register.model.User;
 import pl.sda.register.repository.UserRepository;
 
-import java.sql.SQLException;
 import java.util.Set;
 
 @Service

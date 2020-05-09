@@ -6,7 +6,6 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.sda.register.model.User;
 import pl.sda.register.service.UserService;
 
-import java.sql.SQLException;
 
 @Controller
 public class UserController {

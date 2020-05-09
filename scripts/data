@@ -4,12 +4,14 @@ use register;
 CREATE TABLE `users`
 (
 
+     `id`  BIGINT (20) NOT NULL AUTO_INCREMENT,
     `username`  VARCHAR(50) NOT NULL UNIQUE,
     `firstName` VARCHAR(50) NOT NULL,
-    `lastName`  VARCHAR(50) NOT NULL
+    `lastName`  VARCHAR(50) NOT NULL,
+     PRIMARY KEY (id)
 
 );
 
-INSERT INTO `users` (username, firstName, lastName) VALUE
-    ('login', 'Captain', 'Jack'),
-    ('testSurname', 'testFirstName', 'TestLastName');
+INSERT INTO `users` (id, username, firstName, lastName) VALUE
+    (1,'login', 'Captain', 'Jack'),
+    (2,'SQLScript', 'testFirstName', 'TestLastName');

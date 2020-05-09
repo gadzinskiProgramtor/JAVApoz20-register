@@ -1,8 +1,14 @@
 package pl.sda.register.model;
 
+
 import java.util.Objects;
 
+
 public class User {
+
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
     private String username;
     private String firstName;
@@ -10,6 +16,8 @@ public class User {
 
 
     public User() { }
+
+
 
     public User(String username, String firstName, String lastName) {
         this.username = username;
@@ -54,5 +62,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

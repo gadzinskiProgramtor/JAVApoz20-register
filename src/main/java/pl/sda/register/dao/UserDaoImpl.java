@@ -1,18 +1,18 @@
 package pl.sda.register.dao;
 
+
 import org.springframework.stereotype.Repository;
 import pl.sda.register.config.DbConnection;
 import pl.sda.register.exception.DuplicatedUserNameException;
 import pl.sda.register.exception.UserNotFoundException;
 import pl.sda.register.model.User;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -22,7 +22,7 @@ public class UserDaoImpl implements UserDao {
     private UserDaoImpl() {
     }
 
-    public static UserDaoImpl getInstance() {
+    public static  UserDaoImpl getInstance() {
         if (instance == null) {
             instance = new UserDaoImpl();
         }
@@ -197,4 +197,5 @@ public class UserDaoImpl implements UserDao {
         }
 
     }
+
 }

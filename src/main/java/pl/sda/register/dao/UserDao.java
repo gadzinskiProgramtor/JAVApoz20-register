@@ -1,5 +1,6 @@
 package pl.sda.register.dao;
 
+
 import pl.sda.register.model.User;
 
 import java.sql.SQLException;
